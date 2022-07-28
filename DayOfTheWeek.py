@@ -5,22 +5,23 @@
 
 
 def main():
-    #Just a try catch block to make sure if anything wrong happens, the program stops with a clean landing
+    # Just a try catch block to make sure if anything wrong happens, the program stops with a clean landing
     try:
-        #gets user input
-        day, month, year = input("Enter the day, followed by the month, followed by the year\n").split()
-        #Translates the day month and year into more usable data types
+        # gets user input
+        day, month, year = input(
+            "Enter the day, followed by the month, followed by the year\n").split()
+        # Translates the day month and year into more usable data types
         day, year = int(day), int(year)
         month = Translate(month)
-        #if no errors happen, this should work
-        if month !=-1:
+        # if no errors happen, this should work
+        if month != -1:
             print(what_day(day, month, year))
         else:
             print("Your input is incorrect, please run the program again")
-    #if errors happen, this is here to mitigate it
+    # if errors happen, this is here to mitigate it
     except ValueError:
         print("Your input is incorrect, please run the program again")
-    
+
 
 def what_day(day, month, year):
     # all of the 'special_days' fall on the same day of the week, the day depends
@@ -34,7 +35,7 @@ def what_day(day, month, year):
     # the special day for January and February are different depending on if it
     # is a leap year or not
     if is_leap(year):
-        # if it is a leap year, January 4th and February 29 are special, if not, 
+        # if it is a leap year, January 4th and February 29 are special, if not,
         # the 3rd and 28th are special
         special_days[1] = 4
         special_days[2] = 29
@@ -44,32 +45,32 @@ def what_day(day, month, year):
 
     # wednesday is the special day for 1900, it corresponds to 3
     d = 3
-    # to find the day, we first need to find the number of years which have 
-    # passed, leap years count as 2 years so that is what the second part of 
+    # to find the day, we first need to find the number of years which have
+    # passed, leap years count as 2 years so that is what the second part of
     # the equation is for
     d += (year-1900) + (year-1900)//4
 
-    #the day of the week can only be between 0, and 6, the mod cleans it up
+    # the day of the week can only be between 0, and 6, the mod cleans it up
     if d >= 7:
         d = d % 7
-    #from the hash table we get the special day corresponding to the users month
+    # from the hash table we get the special day corresponding to the users month
     sp_day = special_days[month]
 
     if sp_day < day:
-        #if the user day comes after the special day, then we add the 
-        #difference from user day and special day 
+        # if the user day comes after the special day, then we add the
+        # difference from user day and special day
         d += day-sp_day
     else:
-        #if the user day comes before the special day, then we add the 
-        #difference from special day and user day 
+        # if the user day comes before the special day, then we add the
+        # difference from special day and user day
         d -= sp_day-day
-        #take the absolute value of d to make sure no negative numbers pass
+        # take the absolute value of d to make sure no negative numbers pass
         d = abs(d)
-    #the day of the week can only be between 0, and 6, the mod cleans it up
+    # the day of the week can only be between 0, and 6, the mod cleans it up
     if d >= 7:
         d = d % 7
-    #at the top, the days hash table corresponds to the days of the week, 
-    #we calculated what d is so now we can return what day it is
+    # at the top, the days hash table corresponds to the days of the week,
+    # we calculated what d is so now we can return what day it is
     return days[d]
 
 
@@ -85,11 +86,12 @@ def is_leap(year):
         return True
     return False
 
+
 def Translate(month):
-    #since no month is 2 letters, this will return the number
-    if len(month)<3:
+    # since no month is 2 letters, this will return the number
+    if len(month) < 3:
         return int(month)
-    #return the month as a digit value 
+    # return the month as a digit value
     if month.lower() == "january":
         return 1
     elif month.lower() == "february":
