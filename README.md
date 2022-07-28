@@ -1,6 +1,6 @@
 # Day-Of-The-Week
 This is not a serious project, it was just something I thought I could implement with my understnading of dictionaries in python, im not expert, 
-but I am getting better.
+but I am getting better. While this code is not particularly difficult to create, I still really learned a lot from the experiance, things like pep8, styling, comments, methods, can really make a big difference in the grand scheme of things
 
 I am also starting to really enjoy learning new concepts, I am thinking of my next mini project and hopefully it involves graphs because
 currently I am learing how they opperate and I gotta say, it is very interesting. 
