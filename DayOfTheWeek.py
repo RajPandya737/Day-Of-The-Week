@@ -4,6 +4,24 @@
 # inspired by this video: https://www.youtube.com/watch?v=z2x3SSBVGJU
 
 
+def main():
+    #Just a try catch block to make sure if anything wrong happens, the program stops with a clean landing
+    try:
+        #gets user input
+        day, month, year = input("Enter the day, followed by the month, followed by the year\n").split()
+        #Translates the day month and year into more usable data types
+        day, year = int(day), int(year)
+        month = Translate(month)
+        #if no errors happen, this should work
+        if month !=-1:
+            print(what_day(day, month, year))
+        else:
+            print("Your input is incorrect, please run the program again")
+    #if errors happen, this is here to mitigate it
+    except ValueError:
+        print("Your input is incorrect, please run the program again")
+    
+
 def what_day(day, month, year):
     # all of the 'special_days' fall on the same day of the week, the day depends
     # on the year
@@ -71,6 +89,7 @@ def Translate(month):
     #since no month is 2 letters, this will return the number
     if len(month)<3:
         return int(month)
+    #return the month as a digit value 
     if month.lower() == "january":
         return 1
     elif month.lower() == "february":
@@ -100,18 +119,4 @@ def Translate(month):
 
 
 if __name__ == "__main__":
-    #Just a try catch block to make sure if anything wrong happens, the program stops with a clean landing
-    try:
-        #gets user input
-        day, month, year = input("Enter the day, followed by the month, followed by the year\n").split()
-        #Translates the day month and year into more usable data types
-        day, year = int(day), int(year)
-        month = Translate(month)
-        #if no errors happen, this should work
-        if month !=-1:
-            print(what_day(day, month, year))
-        else:
-            print("Your input is incorrect, please run the program again")
-    #if errors happen, this is here to mitigate it
-    except ValueError:
-        print("Your input is incorrect, please run the program again")
+    main()
