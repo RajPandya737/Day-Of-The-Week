@@ -1,6 +1,7 @@
 # Raj Pandya
 # July 27, 2022
-# This code was created to tell you the day of the week a specific date lands on, works on any day after January 3, 1900
+# This code was created to tell you the day of the week a specific date lands 
+# on, works on any day after January 3, 1900
 # inspired by this video: https://www.youtube.com/watch?v=z2x3SSBVGJU
 
 
